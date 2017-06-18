@@ -1,12 +1,9 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap.css">
 
-<!-- jQuery library -->
 <script src="js/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 
 <head>
@@ -24,21 +21,22 @@
 
 <form>
   <h3>Login</h3>
-  <div>
-    <label for="inputEmail">Email</label>
-    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+  <div class="col-sm-2">
+  
+    <input type="email" class="form-control" id="inputEmail" placeholder="Email" style="width: 250px">
+</div>
+
+  <div class="col-sm-2">
+
+    <input type="password" class="form-control" id="inputPassword" placeholder="Password" style="width:250px">
+  
+  </div>
   </div>
   <div>
-    <label for="inputPassword">Password</label>
-    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
   </div>
-  <div>
-    <label><input type="checkbox"> Remember me</label>
-  </div>
-  <button type="submit" class=btn btn-primary>Login</button>
+  <button type="submit" class="btn btn-primary">Login</button>
 </form>
  
-Modal.html
 <div id="saveModal" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
