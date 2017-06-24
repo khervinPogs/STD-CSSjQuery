@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="css/bootstrap.css">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome Document</title>
+ 
+</head>
+<body>
+<div class="container">
+<div class="panel panel-danger">
+<form>
+
+  <h3>Sign Up for Free</h3>
+  <div class="col-sm-3">
+  
+    <input type="text" class="form-control" id="inputEmail" placeholder="First name" style="width: 250px">
+</div>
+
+  <div class="col-sm-2">
+
+    <input type="text" class="form-control" id="inputPassword" placeholder="Last name" style="width:250px">
+  
+  </div>
+<br></br>
+<div class="col-sm-2">
+   <input type="" class="form-control" id="inputPassword" placeholder="E-mail" style="width:535px">
+</div>
+  
+<br>
+</br>  
+<div class="col-sm-2">
+   <input type="password  " class="form-control" id="inputPassword" placeholder="Password" style="width:535px">
+</div>
+  
+  <br>
+  </br>
+  <button type="submit" class="btn btn-primary" style="align:right ">Sign Up</button>
+
+</form>
+</div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+<div id="saveModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title"></h4>
+        Confirmation
+      </div>
+      <div class="modal-body">
+
+        <p id="input1">Are You sure you want to sign up with the following information</p>
+        <p id="input2"><Strong>Name</Strong</p>
+        <p id="input3"><strong>E-mail</strong></p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary btn-login">Login!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="successModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Yey! Let's pretend your logged in.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script >
+  $(document).ready(function() {
+    $('form').submit(function(e) {
+      e.preventDefault();
+      $('#saveModal').modal('show');
+    });
+    $('.btn-login').click(function(e) {
+      var htmlString=$(inputEmail).html();
+      $(this).text(htmlString);
+    })
+  });
+
+
+
+</script>
+
+
+
