@@ -13,38 +13,39 @@
 </head>
 <body>
 <div class="container">
-<div class="panel panel-danger">
+    <div class="panel panel-danger">
+        <div class="panel panel-header">
+        <h3>Sign Up for Free</h3>
+        </div>
+        <div id="successMsg" class="alert alert-success hide" role="alert" Registration Succesfull >
+            </div>
+<div class="panel panel-body">
 <form>
+            <input type="hidden" id="inputID" value="[your_id_number]">
+                <h4>Sign up for free</h4>
+                <div class="col-sm-3">
+                    <input type="text" id="inputFirstName" placeholder="First Name*" style="width:250px" required>
+                        </div>
+                <div class="form-group">
+                    <input type="text" id="inputLastName" placeholder="Last Name*" style="width:250px" required>
+                        </div>
+                <div class="form-group">
+                    <input type="email" id="inputEmail" placeholder="Email Address*" style="width:525px" required>
+                        </div>
+                <div class="form-group">
+                    <input type="text" id="inputPassword" placeholder="Password*"  style="width:525px"required>
+                        </div>
+                <div class="form-group">
+                    </div>
+                
+                    <button type="submit" class="btn btn-primary pull-right">Sign up</button>
+                </div>
+      
+                </form>
+    </div>
 
-  <h3>Sign Up for Free</h3>
-  <div class="col-sm-3">
-  
-    <input type="text" class="form-control" id="inputEmail" placeholder="First name" style="width: 250px">
-</div>
 
-  <div class="col-sm-2">
 
-    <input type="text" class="form-control" id="inputPassword" placeholder="Last name" style="width:250px">
-  
-  </div>
-<br></br>
-<div class="col-sm-2">
-   <input type="" class="form-control" id="inputPassword" placeholder="E-mail" style="width:535px">
-</div>
-  
-<br>
-</br>  
-<div class="col-sm-2">
-   <input type="password  " class="form-control" id="inputPassword" placeholder="Password" style="width:535px">
-</div>
-  
-  <br>
-  </br>
-  <button type="submit" class="btn btn-primary" style="align:right ">Sign Up</button>
-
-</form>
-</div>
-</div>
 </body>
 </html>
 
@@ -54,59 +55,66 @@
 
 
 <div id="saveModal" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title"></h4>
-        Confirmation
-      </div>
-      <div class="modal-body">
-
-        <p id="input1">Are You sure you want to sign up with the following information</p>
-        <p id="input2"><Strong>Name</Strong</p>
-        <p id="input3"><strong>E-mail</strong></p>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary btn-login">Login!</button>
-      </div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Confirmation</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to sign-up with the following info?</p>
+                <div class="userInput"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary btn-login">Sign-up!</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
-<div id="successModal" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p>Yey! Let's pretend your logged in.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 
-<script >
-  $(document).ready(function() {
-    $('form').submit(function(e) {
-      e.preventDefault();
-      $('#saveModal').modal('show');
-    });
-    $('.btn-login').click(function(e) {
-      var htmlString=$(inputEmail).html();
-      $(this).text(htmlString);
-    })
-  });
-
-
-
-</script>
+<script type="text/javascript">
+    // load script when document is ready (all resources loaded)
+    $(document).ready(function() {
+                      // global input variable
+                      var input = {};
+                      
+                      // on form submit
+                      $('form').submit(function(e) {
+                                       e.preventDefault();
+                                       
+                                       var $this = $(this);
+                                       // serialize form, for form submission
+                                       input = $this.serialize();
+                                       "saveModal"
+                                       
+                                       // show save modal (tod)
+                                       });
+                      
+                      // on btn-login click
+                      $('.btn-login').click(function(e) {
+                                            e.preventDefault();
+                                            // send ajax request (todo)
+                                            $.ajax({
+                                                   method: "POST",
+                                                   url: "http://tolitsdelizo.info/st-activities/jquery/register.php";
+                                                   data: input
+                                                   })
+                                            .done(function( msg ) {
+                                                  if (msg == 'OK') {
+                                                  $('#sucessMsg').removeClass('hide').show();
+                                                  // show success msg (todo)
+                                                  
+                                                  // reset form (todo)
+                                                  
+                                                  // hide save modal (todo)
+                                                  }
+                                                  });
+                                            
+                                            });
+                      });
+    </script>
 
 
 
